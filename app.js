@@ -11,14 +11,6 @@ const state = {
     usedIndexes: []
 }
 
-// const newState = () => {
-//     state.player1 = 0
-//     state.player2 = 0
-//     state.which = true
-//     state.win = false
-//     state.usedIndexes = []
-// }
-
 let questions = []
 let loaded = false
 
@@ -26,11 +18,11 @@ let loaded = false
 ** Main DOM Element
 ************************************** */
 
-const $question = $('#question')
-const $a = $('#a')
-const $b = $('#b')
-const $c = $('#c')
-const $d = $('#d')
+let $question = $('#question')
+let $a = $('#a')
+let $b = $('#b')
+let $c = $('#c')
+let $d = $('#d')
 const $p1Score = $('#player1 h4').eq(0)
 const $p2Score = $('#player2 h4').eq(0)
 
@@ -40,6 +32,16 @@ const $p2Score = $('#player2 h4').eq(0)
 /* **************************************
 ** Functions
 ************************************** */
+
+const newState = () => {
+    state.player1 = 0
+    state.player2 = 0
+    state.currentIndex = -1
+    state.which = true
+    state.win = false
+    state.usedIndexes = []
+    loaded = false
+}
 
 const saveState = () => {
     for (key of Object.keys(state)) {
@@ -93,25 +95,41 @@ const setBoard = (q) => {
 
         // Generate a random index
         let randomIndex = Math.floor(Math.random()*q.length)
+        console.log(randomIndex)
 
         // If questions are all asked or the game state is won
         if (state.usedIndexes.length === q.length || state.win === true) {
 
-            // Update Question/Answers DOM elements with win screen + animations + reset function
-            $('body').off()
-            $('#answer').empty().text('Reset?')
-            $('#answer').on('click', () => {
+            // Replace #question with #victory 
+            $('#question').empty()
+            const $winner = $('#question').append($('<div>').attr('id', 'victory'))
+            if ($p1Score > $p2Score) {$winner.text('Player 1 wins!')}
+            else if ($p2Score > $p1Score) {$winner.text('Player 2 wins!')}
+            else {$winner.text("It's a draw!")}
+
+            // Replace #answer with #reset
+            $('#answer').empty()
+            $('#answer').append($('<div>').attr('id', 'reset').text('Reset?'))
+            $('#reset').on('click', () => {
 
                 // Clear results
                 localStorage.clear()
                 console.log('cleared')
+                newState()
 
                 // Rebuild #answer
-                // $('#answer').append()
+                $('#answer').empty().append($('<ul>'))
+                $('ul').append($('<li>').attr('id', 'a'))
+                $('ul').append($('<li>').attr('id', 'b'))
+                $('ul').append($('<li>').attr('id', 'c'))
+                $('ul').append($('<li>').attr('id', 'd'))
+                $a = $('#a')
+                $b = $('#b')
+                $c = $('#c')
+                $d = $('#d')
 
-                // Repopulate board with question/answers
-                // randomUnusedIndex()
-                // setBoard(q)
+                // Restart game loop
+                randomUnusedIndex()
             })
 
             // If index is unused, add to list of used indexes, then generate random unasked question
@@ -167,3 +185,7 @@ $.ajax(URL)
     setBoard(questions)
 })
 
+// location.reload
+// fix conditional
+// call differently, i.e. not jQuery
+// 
