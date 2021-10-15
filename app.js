@@ -9,7 +9,7 @@ const state = {
     player2: 0,
     currentIndex: -1,
     which: true,
-    win: true,
+    win: false,
     usedIndexes: []
 }
 
@@ -28,9 +28,6 @@ let $c = $('#c')
 let $d = $('#d')
 const $p1Score = $('.player1 h4')
 const $p2Score = $('.player2 h4')
-
-// console.log($p1Score)
-// console.log($p2Score)
 
 /* **************************************
 ** Functions
@@ -61,11 +58,9 @@ const loadState = () => {
     localStorage.getItem('usedIndexes').split(',').forEach((n) => {
         state.usedIndexes.push(parseInt(n))
     })
-
 }
 
 const chooseAnswer = (event, question, usedIndex) => {
-    // console.log(event)
     state.usedIndexes.push(usedIndex)
     if (event.target.innerText === question.answer) {
         console.log('correct')
@@ -104,15 +99,15 @@ const setBoard = (q) => {
 
             // Replace #question with #victory 
             $('#question').empty()
-            const $winner = $('#question').append($('<div>').attr('id', 'victory'))
-            if (state.player1 > state.player2) {$winner.text('Player 1 wins!')}
-            else if (state.player2 > state.player1) {$winner.text('Player 2 wins!')}
-            else {$winner.text("It's a draw!")}
+            $('#question').append($('<div>').append($('<h3>').attr('id', 'victory')))
+            const $winner = $('#victory')
+            if (state.player1 > state.player2) {$winner.text('Player 1 wins!  Grab a senzu bean to restart!')}
+            else if (state.player2 > state.player1) {$winner.text('Player 2 wins!  Grab a senzu bean to restart!')}
+            else {$winner.text("It's a draw! Grab a senzu bean to restart!")}
 
             // Replace #answer with #reset
             $('#answer').empty()
-            $('#answer').append($('<div>').attr('id', 'reset').text('Reset?'))
-
+            $('#answer').append($('<img>').attr('id', 'reset'))
             $('#reset').on('click', () => {
 
                 // Clear results

@@ -14,7 +14,7 @@ h1 {
     color: black;
     font-size: 7vw;
     text-align: center;
-    text-shadow: 2px 2px 5px palevioletred;
+    text-shadow: 2px 2px 5px orange;
     padding: 10px 0px;
 }
 
@@ -59,6 +59,34 @@ h1 {
     align-self: baseline; */
 }
 
+#question {
+    display: flex;
+    justify-content: center;
+    background-color: palevioletred;
+    margin: 2vh 15vw;
+    padding: 1vmin;
+    border-style: outset;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    margin: 0 15vw;
+    object-fit: contain;
+    background-image: url('./imgs/senzubean.gif');
+    /* object-fit: contain; */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 70vmin;
+    height: 30vmax;
+}
+
+#reset:hover {
+    background-image: url('./imgs/senzucatch.gif');
+}
+
 @media only screen and (max-width: 425px) {
     .scoreColumn {
         display: none;
@@ -69,6 +97,10 @@ h1 {
         justify-content: space-between;
     }
 
+    body {
+        width: 100%
+    }
+
     .player1 {
         padding-left: 5%;
         padding-right: 15%;
@@ -77,13 +109,6 @@ h1 {
     .player2 {
         padding-left: 15%;
         padding-right: 5%;
-    }
-
-    #question {
-        background-color: palevioletred;
-        margin: 2vh 15vw;
-        padding: 20px;
-        border-style: outset;
     }
 
 }
@@ -107,6 +132,7 @@ h1 {
         margin-top: 10px;
         padding-top: 40%;
         padding-bottom: 60%;
+        font-size: 1.3em;
     }
 
     .animate {
@@ -128,6 +154,7 @@ h1 {
         background-color: palevioletred;
         padding: 20px;
         border-style: outset;
+        margin: 5px 0px;
     }
 
     #answer li {
@@ -136,23 +163,72 @@ h1 {
 
     h1 {
         font-size: 150%;
-        margin: 5vh 0;
+        margin-top: 7vh;
+        margin-bottom: 7vh;
     }
 
     .scoreColumn {
         font-size: 150%;
     }
 
+    #reset {
+        margin: 0px;
+        width: 60vmin;
+        height: 30vmax;
+    }
+
+    #question, #answer, #reset {
+        margin: 3vh auto;
+    }
 }
 
 @media only screen and (min-width: 575px) {
     h1 {
         font-size: 200%;
-        margin: 8vh 0;
+        margin-top: 7vh;
+        margin-bottom: 5vh;
     }
 
     #QA {
         font-size: 110%;
     }
+
+    #reset {
+        margin: 0px;
+        width: 60vw;
+        height: 40vmax;
+    }
 }
 
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 250%;
+        margin-top: 7vh;
+        margin-bottom: 5vh;
+    }
+
+    #QA {
+        font-size: 150%;
+    }
+
+    #reset {
+        height: 40vmax;
+        width: 60vw;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    h1 {
+        font-size: 320%;
+    }
+
+    #QA {
+        font-size: 3vw;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .player1, .player2 {
+        font-size: 3em;
+    }
+}
