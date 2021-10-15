@@ -1,3 +1,5 @@
+const URL = 'https://cdn.contentful.com/spaces/sg4gz6jul2c0/environments/master/entries?access_token=ESWPiLjC9_qDq-qRkwUKOWuL6oQI7klEEmS7XaVIogM&content_type=triviaq'
+
 /* **************************************
 ** APP STATE
 ************************************** */
@@ -18,6 +20,7 @@ let loaded = false
 ** Main DOM Element
 ************************************** */
 
+// const $image = $('#gallery')
 let $question = $('#question')
 let $a = $('#a')
 let $b = $('#b')
@@ -95,7 +98,6 @@ const setBoard = (q) => {
 
         // Generate a random index
         let randomIndex = Math.floor(Math.random()*q.length)
-        console.log(randomIndex)
 
         // If questions are all asked or the game state is won
         if (state.usedIndexes.length === q.length || state.win === true) {
@@ -146,6 +148,7 @@ const setBoard = (q) => {
             const randomQuestion = q[randomIndex]
 
             // Update questions/answers in DOM
+            // $image.innerHTML($('<img>'))
             $question.text(randomQuestion.question)
             $a.text(randomQuestion.a)
             $b.text(randomQuestion.b)
@@ -171,12 +174,11 @@ const setBoard = (q) => {
 ** Main App Logic
 ************************************** */
 
-const URL = 'https://cdn.contentful.com/spaces/sg4gz6jul2c0/environments/master/entries?access_token=ESWPiLjC9_qDq-qRkwUKOWuL6oQI7klEEmS7XaVIogM&content_type=triviaq'
 $.ajax(URL)
 .then((data) => {
     questions = data.items.map((q) => q.fields)
     // console.log(data)
-    // console.log(questions)
+    // console.log(questions[0].image)
     if (localStorage.getItem('usedIndexes') !== null) {
         loadState()
         loaded = true
@@ -184,8 +186,3 @@ $.ajax(URL)
     }
     setBoard(questions)
 })
-
-// location.reload
-// fix conditional
-// call differently, i.e. not jQuery
-// 
