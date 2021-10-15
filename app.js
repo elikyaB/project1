@@ -9,7 +9,7 @@ const state = {
     player2: 0,
     currentIndex: -1,
     which: true,
-    win: false,
+    win: true,
     usedIndexes: []
 }
 
@@ -26,8 +26,8 @@ let $a = $('#a')
 let $b = $('#b')
 let $c = $('#c')
 let $d = $('#d')
-const $p1Score = $('#player1 h4').eq(0)
-const $p2Score = $('#player2 h4').eq(0)
+const $p1Score = $('.player1 h4')
+const $p2Score = $('.player2 h4')
 
 // console.log($p1Score)
 // console.log($p2Score)
@@ -105,13 +105,14 @@ const setBoard = (q) => {
             // Replace #question with #victory 
             $('#question').empty()
             const $winner = $('#question').append($('<div>').attr('id', 'victory'))
-            if ($p1Score > $p2Score) {$winner.text('Player 1 wins!')}
-            else if ($p2Score > $p1Score) {$winner.text('Player 2 wins!')}
+            if (state.player1 > state.player2) {$winner.text('Player 1 wins!')}
+            else if (state.player2 > state.player1) {$winner.text('Player 2 wins!')}
             else {$winner.text("It's a draw!")}
 
             // Replace #answer with #reset
             $('#answer').empty()
             $('#answer').append($('<div>').attr('id', 'reset').text('Reset?'))
+            $('body').css('margin', '0 auto')
             $('#reset').on('click', () => {
 
                 // Clear results

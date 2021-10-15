@@ -1,0 +1,158 @@
+* {
+    font-family: 'Playfair Display', serif;
+    /* outline: 2px solid yellow; */
+    margin: 0px 0px;
+}
+
+body {
+    background-image: url('./imgs/bg.jpg');
+    background-size: cover;
+    display: inline-block;
+}
+
+h1 {
+    color: black;
+    font-size: 7vw;
+    text-align: center;
+    text-shadow: 2px 2px 5px palevioletred;
+    padding: 10px 0px;
+}
+
+.player1, .player2 {
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    mix-blend-mode: multiply;
+    text-align: center;
+    padding: 2%;
+}
+
+.player1 {
+    background-image: url('./imgs/nimbus.jpeg');
+}
+
+.player2 {
+    background-image: url('./imgs/nimbus2.jpeg');
+}
+
+#answer ul {
+    display: flex;
+    flex-flow: column;
+    list-style-type: none;
+    padding-left: 0px;
+    /* justify-content: center;
+    align-items: center; */
+    /* display: table-cell;
+    vertical-align: middle; */
+}
+
+#answer li {
+    background-color: palevioletred;
+    border-style: outset;
+    margin: 2px 15vw;
+    padding: 5px;
+    text-align: center;
+    /* height: 15vh;
+    justify-self: end;
+    align-self: baseline; */
+}
+
+@media only screen and (max-width: 425px) {
+    .scoreColumn {
+        display: none;
+    }
+
+    #scoreRow {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .player1 {
+        padding-left: 5%;
+        padding-right: 15%;
+    }
+
+    .player2 {
+        padding-left: 15%;
+        padding-right: 5%;
+    }
+
+    #question {
+        background-color: palevioletred;
+        margin: 2vh 15vw;
+        padding: 20px;
+        border-style: outset;
+    }
+
+}
+
+@media only screen and (min-width: 426px) {
+    .scoreColumn {
+        width: 20vw;
+    }
+    #scoreRow {
+        display: none;
+    }
+
+    body {
+        display: flex;
+        margin: 0 auto;
+    }
+
+    .player1, .player2 {
+        background-image: url('./imgs/nimbus_up_tail_right.jpeg');
+        background-size: contain;
+        margin-top: 10px;
+        padding-top: 40%;
+        padding-bottom: 60%;
+    }
+
+    .animate {
+        position: relative;
+        animation-name: tail-whip;
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes tail-whip {
+        50% {background-image: url('./imgs/nimbus_up_tail_left.jpeg');}
+    }
+
+    #board {
+        width: 60%;
+    }
+
+    #question {
+        background-color: palevioletred;
+        padding: 20px;
+        border-style: outset;
+    }
+
+    #answer li {
+        margin: 2px 0;
+    }
+
+    h1 {
+        font-size: 150%;
+        margin: 5vh 0;
+    }
+
+    .scoreColumn {
+        font-size: 150%;
+    }
+
+}
+
+@media only screen and (min-width: 575px) {
+    h1 {
+        font-size: 200%;
+        margin: 8vh 0;
+    }
+
+    #QA {
+        font-size: 110%;
+    }
+}
+

@@ -1,0 +1,89 @@
+* {
+    font-family: 'Playfair Display', serif;
+    outline: 2px solid yellow;
+    margin: 0px 0px;
+}
+
+body {
+    background-image: url('https://ih0.redbubble.net/image.259606426.1445/flat,1000x1000,075,f.u3.jpg');
+    background-size: cover;
+}
+
+h1 {
+    color: black;
+    font-size: 7vw;
+    text-align: center;
+    text-shadow: 2px 2px 5px lightsalmon;
+    padding: 20px 0px;
+}
+
+#question {
+
+}
+
+#answer ul {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+#scores {
+    display: flex; 
+    justify-content: space-between;}
+
+#scores div {
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgba(255,255,255,0); */
+    background-image: url('https://imgr.search.brave.com/SoYiC_P4obdM05z_er3jPUoBMPvhBZfMN_hRaje3izw/fit/1012/225/ce/1/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5M/MW9mMkpWYkl5RVBE/S0oxRkhDN0h3SGFE/ZSZwaWQ9QXBp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* opacity: 0.4; */
+    mix-blend-mode: color-burn;
+}
+
+/* #player1 {
+    margin-top: 100px;
+}
+
+#player2 {
+    margin-bottom: 100px;
+} */
+
+
+#scores div * {padding: 0; margin: 0 auto; padding: 0 5px;}
+
+
+@media only screen and (max-width: 425px) {
+    .scores {
+        display: none;
+    }
+}
+
+
+
+@media only screen and (min-width: 426px) {
+    body {
+        display: flex;
+        margin: 0 auto;
+        background-image: url('https://ih0.redbubble.net/image.259606426.1445/flat,1000x1000,075,f.u3.jpg');
+        background-size: cover;
+    }
+
+    #board {
+        width: 70%;
+    }
+
+    #scores {
+        display: none;
+    }
+}
+
+/* 
+
+senzu bean url('https://imgr.search.brave.com/s-9ncqt6SnlwDNJEVKVWhuZv7rYe2Sv1Yp8-4Q_rtc4/fit/267/200/ce/1/aHR0cHM6Ly9tZWRp/YS5naXBoeS5jb20v/bWVkaWEvenJnYVlC/NDluaDc2RS9naXBo/eS5naWY.gif')
+
+senzu catch url('https://imgr.search.brave.com/bOs2sxfjA1hvpUFqpnvcT2E70OycW8LYUoIRgWgZQ_0/fit/320/213/ce/1/aHR0cHM6Ly9pLm1h/a2VhZ2lmLmNvbS9t/ZWRpYS85LTE0LTIw/MTUvT2c4eE9VLmdp/Zg.gif')
+
+*/
