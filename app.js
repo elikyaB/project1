@@ -112,7 +112,7 @@ const setBoard = (q) => {
             // Replace #answer with #reset
             $('#answer').empty()
             $('#answer').append($('<div>').attr('id', 'reset').text('Reset?'))
-            $('body').css('margin', '0 auto')
+
             $('#reset').on('click', () => {
 
                 // Clear results
